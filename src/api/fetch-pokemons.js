@@ -1,21 +1,25 @@
 import {fetchPokemonsPending, fetchPokemonsSuccess, fetchPokemonsError} from '../actions/index';
 
-function fetchPokemons() {
-    return dispatch => {
-        dispatch(fetchPokemonsPending());
-        fetch('https://pokeapi.co/api/v2/gender/1')
-        .then(res => res.json())
-        .then(res => {
-            if(res.error) {
-                throw(res.error);
-            }
-            dispatch(fetchPokemonsSuccess(res.pokemon_species_details));
-            return res.pokemon_species_details;
-        })
-        .catch(error => {
-            dispatch(fetchPokemonsError(error));
-        })
-    }
+const typePokemons = async(type) => {
+  const response = await fetch(`https://pokeapi.co/api/v2/type/${type}`)
+
+  if (response.ok) return response.json()
+
+  throw new Error(response.status)
+}
+
+
+const fetchPokemons = (type) => {
+  return async(dispatch) =>{
+    dispatch(fetchPokemonsPending());
+    try {
+      const response = await typePokemons(type)
+      dispatch(fetchPokemonsSuccess(response.pokemon))
+      return response.pokemon
+    } catch (e) {
+      dispatch(fetchPokemonsError(e))
+    }   
+  }
 }
 
 export default fetchPokemons;
