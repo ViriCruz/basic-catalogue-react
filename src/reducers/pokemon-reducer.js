@@ -11,7 +11,7 @@ export const pokemonsReducer = (state = {}, action) => {
             return {
                 ...state,
                 pending: false,
-                products: action.payload
+                pokemons: action.pokemons
             }
         case FETCH_POKEMONS_ERROR:
             return {
@@ -24,6 +24,6 @@ export const pokemonsReducer = (state = {}, action) => {
     }
 }
 
-export const getProducts = state => state.products;
-export const getProductsPending = state => state.pending;
-export const getProductsError = state => state.error;
+export const getPokemons = state => state.data.pokemons;
+export const getPokemonsPending = state => state.data.pending;
+export const getPokemonsError = state => state.data.error;
