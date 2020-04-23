@@ -1,9 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { applyMiddleware, createStore } from 'redux'
+import thunk from 'redux-thunk';
 import rootReducer from './reducers/root-reducer'
 import App from './components/app'
+
+const middlewares = [thunk];
 
 const initialState = {
   pending: false,
@@ -13,9 +16,8 @@ const initialState = {
 
 const store = createStore(rootReducer, {
   data: initialState
-})
+}, applyMiddleware(...middlewares))
 
-console.log(store.getState())
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
