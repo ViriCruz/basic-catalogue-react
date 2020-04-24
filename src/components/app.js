@@ -1,7 +1,7 @@
 import React from 'react'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Catalogue from '../containers/catalogue'
-import Pokemon from '../components/item-detailed-view'
+import DetailedView from '../containers/detailed-view'
 
 const app = () => {
   return(
@@ -11,7 +11,7 @@ const app = () => {
         <div>
           <Switch>
             <Route exact path="/"> <Catalogue /> </Route>
-            <Route path="/pokemon/:name"> <Pokemon /> </Route>
+            <Route path="/pokemon/:name"> <DetailedView /> </Route>
           </Switch>
         </div>
       </div>
