@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import fetchPokemonsAction from '../api/fetch-pokemons'
 import { bindActionCreators } from 'redux'
 import { getPokemonsError, getPokemons, getPokemonsPending } from '../reducers/pokemon-reducer'
-import whoIs from '../assets/who-is.png'
-import { Link } from 'react-router-dom'
+import PokemonCompactView from '../components/item-compact-view'
+
 const mapDispatchToProps = dispatch => bindActionCreators({
   fetchPokemons: fetchPokemonsAction
 }, dispatch);
@@ -27,9 +27,6 @@ class Catalogue extends React.Component {
     fetchPokemons('normal')
   }
 
-  handleView(){
-    console.log('handle view')
-  }
 
   render() {
     const {error, pending, pokemons} = this.props.data
@@ -44,15 +41,7 @@ class Catalogue extends React.Component {
     return(
       <div>
         <ul className="pokelist">
-          {pokemons.map(pokemon => <li 
-            className="pokemon" 
-            onClick={this.handleView}>
-            <Link to={`/pokemon/${pokemon.pokemon.name}`}>
-              <img className="pokemon-pic" src={whoIs}/>
-              {pokemon.pokemon.name}
-            </Link>
-            </li>)
-          }
+          {pokemons.map(pokemon => <PokemonCompactView pokemon={pokemon.pokemon} />)}
         </ul>
       </div>
     )
