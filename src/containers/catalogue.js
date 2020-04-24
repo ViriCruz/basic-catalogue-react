@@ -1,12 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import fetchPokemonsAction from '../api/fetch-pokemons'
+import fetchPokemonsActions from '../api/fetch-pokemons'
 import { bindActionCreators } from 'redux'
 import { getPokemonsError, getPokemons, getPokemonsPending } from '../reducers/pokemon-reducer'
 import PokemonCompactView from '../components/item-compact-view'
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  fetchPokemons: fetchPokemonsAction
+  fetchPokemons: fetchPokemonsActions.fetchPokemons
 }, dispatch);
 
 const mapStateToProps = state => ({
@@ -19,10 +19,10 @@ const mapStateToProps = state => ({
 
 class Catalogue extends React.Component {
   constructor(props){
-    super(props)    
+    super(props)
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     const {fetchPokemons} = this.props
     fetchPokemons('normal')
   }
@@ -41,7 +41,10 @@ class Catalogue extends React.Component {
     return(
       <div>
         <ul className="pokelist">
-          {pokemons.map(pokemon => <PokemonCompactView pokemon={pokemon.pokemon} />)}
+          {pokemons.map(pokemon => <PokemonCompactView 
+            key={pokemon.pokemon.name} 
+            pokemon={pokemon.pokemon}
+          />)}
         </ul>
       </div>
     )
