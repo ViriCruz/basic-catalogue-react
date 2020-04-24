@@ -1,6 +1,6 @@
 import React from 'react'
 
-const pokemon = (props) => {
+const pokemon = () => {
   return(
     <div>
       <h1>Pikachu</h1>
