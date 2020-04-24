@@ -12,6 +12,7 @@ const middlewares = [thunk];
 
 const initialState = {
   pending: true,
+  pendingPokemon: true,
   pokemons: [],
   error: null
 }

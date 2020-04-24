@@ -11,9 +11,9 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 
 const mapStateToProps = state => ({
   data: {
-    error: getPokemonsError(state),
-    pokemons: getPokemons(state),
-    pending: getPokemonsPending(state)
+    error: getPokemonsError(state.data),
+    pokemons: getPokemons(state.data),
+    pending: getPokemonsPending(state.data)
   }
 });
 
