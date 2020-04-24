@@ -1,4 +1,11 @@
-import {fetchPokemonsPending, fetchPokemonsSuccess, fetchPokemonsError} from '../actions/index';
+import { 
+  fetchPokemonsPending, 
+  fetchPokemonsSuccess, 
+  fetchPokemonsError,
+  fetchSinglePokemonError,
+  fetchSinglePokemonPending,
+  fetchSinglePokemonSuccess
+} from '../actions/index';
 
 const pokemonsType = async(type) => {
   const response = await fetch(`https://pokeapi.co/api/v2/type/${type}`)
@@ -8,8 +15,8 @@ const pokemonsType = async(type) => {
   throw new Error(response.status)
 }
 
-const pokemon = async(url) => {
-  const response = await fetch(url)
+const pokemonProps = async(name) => {
+  const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
 
   if (response.ok) return response.json()
 
@@ -29,4 +36,26 @@ const fetchPokemons = (type) => {
   }
 }
 
-export default fetchPokemons;
+const fetchPokemon = (name) => {
+  return async(dispatch) => {
+    dispatch(fetchSinglePokemonPending())
+    try {
+      const response = await pokemonProps(name)
+      const pokemon = {
+        name: response.name,
+        abilities: response.abilities,
+        sprites: response.sprites,
+        stats: response.stats
+      }
+      dispatch(fetchSinglePokemonSuccess(pokemon))
+      return pokemon
+    } catch (e) {
+      dispatch(fetchSinglePokemonError(e))
+    }
+  }
+}
+
+export default {
+  fetchPokemons,
+  fetchPokemon
+}
