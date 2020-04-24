@@ -1,0 +1,17 @@
+ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pokemon {
+  background-color: #4f4f4f;
+  padding: 20px;
+  color: #fff;
+  font-size: 24px;
+  flex: 1 1 300px;
+}
+
+.pokemon img {
+  height:100px;
+}
