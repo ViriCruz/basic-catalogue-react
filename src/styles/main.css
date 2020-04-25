@@ -74,3 +74,9 @@ ul {
   background-color:#ad21a8;
   color: #fff
 }
+
+/* spinner */
+.spinner-grow {
+  width: 9rem!important;
+  height: 9rem!important;
+}
