@@ -24,13 +24,13 @@ const CategoryFilter = props => {
     'unknown',
     'shadow',
   ];
-  const { onClick } = props;
+  const { onClick, category } = props;
   return (
     <div className="form-group d-flex justify-content-center">
       <label htmlFor="category" className="category">
         Select Pokemon Category
 
-        <select name="category" className="custom-select" onChange={e => onClick(e)}>
+        <select name="category" className="custom-select" value={category} onChange={e => onClick(e)}>
           <option key={1} value="">Select category</option>
           {pokemonCategories.map(cat => (<option key={cat} value={cat}>{cat}</option>))}
         </select>

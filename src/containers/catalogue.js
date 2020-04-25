@@ -43,7 +43,7 @@ class Catalogue extends React.Component {
 
   render() {
     const { error, pending, pokemons } = this.props.data;
-
+    const {filter} = this.props
     if (error) {
       return (
         <div>
@@ -63,7 +63,7 @@ class Catalogue extends React.Component {
 
     return (
       <div className="catalogue">
-        <CategoryFilter onClick={this.handleFilterChange} />
+        <CategoryFilter onClick={this.handleFilterChange} category={filter} />
         <ul className="pokelist container row mx-auto">
           {pokemons.map(pokemon => (
             <PokemonCompactView
