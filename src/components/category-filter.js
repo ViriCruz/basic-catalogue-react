@@ -29,13 +29,10 @@ const CategoryFilter = props => {
     <div className="form-group mt-5">
       <label htmlFor="category">
         Select Pokemon Category
-        <select name="category" className="select-field" onChange={e => onClick(e)}>
-          <option value="normal">normal</option>
-          {pokemonCategories.map(cat => (
-            <option key={cat} value={cat}>
-              {cat}
-            </option>
-          ))}
+
+        <select name="category" className="select-field"  onChange={e => onClick(e)}>
+          <option key={1} value=''>Select category</option>
+          {pokemonCategories.map(cat => (<option key={cat} value={cat}>{cat}</option>))}
         </select>
       </label>
     </div>

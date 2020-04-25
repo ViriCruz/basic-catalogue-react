@@ -4,7 +4,8 @@ import {
   fetchPokemonsError,
   fetchSinglePokemonError,
   fetchSinglePokemonPending,
-  fetchSinglePokemonSuccess
+  fetchSinglePokemonSuccess,
+  changeType
 } from '../actions/index';
 
 const pokemonsType = async(type) => {
@@ -29,6 +30,7 @@ const fetchPokemons = (type) => {
     try {
       const response = await pokemonsType(type)
       dispatch(fetchPokemonsSuccess(response.pokemon))
+      dispatch(changeType(type))
       return response.pokemon
     } catch (e) {
       dispatch(fetchPokemonsError(e))

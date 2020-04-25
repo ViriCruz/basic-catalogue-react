@@ -1,11 +1,11 @@
 const FILTER_TYPE = 'FILTER_TYPE'
-const filterType = (state = 'normal', action) => {
+export const filterType = (state = 'normal', action) => {
   switch (action.type) {
     case FILTER_TYPE:
-      return action.type;
+      return action.category;
     default:
       return state;
   }
 };
 
-export default filterType;
+export const getPokemonType = category => category;
