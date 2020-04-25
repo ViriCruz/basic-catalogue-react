@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { getPokemonsError, getPokemons, getPokemonPending } from '../reducers/pokemon-reducer';
 import fetchPokemonsActions from '../api/fetch-pokemons';
 import Pokemon from '../components/item-detailed-view';
+import Spinner from 'react-bootstrap/Spinner'
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   fetchPokemon: fetchPokemonsActions.fetchPokemon,
@@ -36,12 +37,22 @@ const DetailedView = ({ fetchPokemon, data }) => {
       </div>
     );
   }
-  if (pending) return <div>loading</div>;
+  if (pending) {
+    return (
+      <div className="d-flex justify-content-center">
+        <Spinner animation="grow" />
+      </div>
+    )
+  }
   if (pokemons.length === 1) {
     return <Pokemon pokemon={pokemons[0]} />;
   }
 
-  return <div>Data still loading</div>;
+  return (
+    <div className="d-flex justify-content-center">
+      <Spinner animation="grow" />
+    </div>
+  )
 };
 
 DetailedView.defaultProps = {

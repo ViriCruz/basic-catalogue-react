@@ -2,6 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router';
 import PropTypes from 'prop-types';
 
+
 const Pokemon = ({ pokemon }) => {
   const history = useHistory();
 

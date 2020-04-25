@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import whoIs from '../assets/who-is.png';
+import whoIs from '../assets/pokemon.png';
 
 const pokemonItem = ({ pokemon }) => (
   <li

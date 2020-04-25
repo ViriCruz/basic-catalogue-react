@@ -7,6 +7,7 @@ import { getPokemonsError, getPokemons, getPokemonsPending } from '../reducers/p
 import { getPokemonType } from '../reducers/filter-reducer';
 import PokemonCompactView from '../components/item-compact-view';
 import CategoryFilter from '../components/category-filter';
+import Spinner from 'react-bootstrap/Spinner'
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   fetchPokemons: fetchPokemonsActions.fetchPokemons,
@@ -54,11 +55,19 @@ class Catalogue extends React.Component {
     }
 
     if (pending) {
-      return <div>loading..</div>;
+      return (
+        <div className="d-flex justify-content-center">
+          <Spinner animation="grow" />
+        </div>
+      )
     }
 
     if (pokemons.length < 2) {
-      return <div>loading...</div>;
+      return (
+        <div className="d-flex justify-content-center">
+          <Spinner animation="grow" />
+        </div>
+      )
     }
 
     return (
