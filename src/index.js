@@ -7,6 +7,7 @@ import rootReducer from './reducers/root-reducer'
 import App from './components/app'
 import './styles/main.css';
 import './styles/reset.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const middlewares = [thunk];
 
@@ -18,7 +19,8 @@ const initialState = {
 }
 
 const store = createStore(rootReducer, {
-  data: initialState
+  data: initialState,
+  filter: 'normal'
 }, applyMiddleware(...middlewares))
 
 ReactDOM.render(
