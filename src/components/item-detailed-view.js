@@ -1,6 +1,6 @@
 import React from 'react'
 import {useHistory} from 'react-router'
-
+import PropTypes from 'prop-types';
 
 const Pokemon = ({pokemon}) => {
   const history = useHistory()
@@ -32,6 +32,24 @@ const Pokemon = ({pokemon}) => {
       <button onClick={goBackHandle}>Go back</button>
     </div>
   )
+}
+
+Pokemon.defaultProps = {
+  pokemon:{
+    name: 'pikachu',
+    abilities: [],
+    stats: [],
+    sprites: {}
+  }
+}
+
+Pokemon.propTypes = {
+  pokemon: PropTypes.shape({
+    name: PropTypes.string,
+    abilities: PropTypes.arrayOf(PropTypes.object),
+    stats: PropTypes.arrayOf(PropTypes.object),
+    sprites: PropTypes.objectOf(PropTypes.string)
+  })
 }
 
 export default Pokemon
