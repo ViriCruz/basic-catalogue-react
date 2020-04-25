@@ -5,6 +5,7 @@ const FETCH_POKEMONS_ERROR = 'FETCH_POKEMONS_ERROR';
 const FETCH_SINGLE_POKEMON_PENDING = 'FETCH_SINGLE_POKEMON_PENDING';
 const FETCH_SINGLE_POKEMON_SUCCESS = 'FETCH_SINGLE_POKEMON_SUCCESS';
 const FETCH_SINGLE_POKEMON_ERROR = 'FETCH_SINGLE_POKEMON_ERROR';
+const FILTER_TYPE = 'FILTER_TYPE';
 
 const fetchPokemonsPending = () => {
     return {
@@ -46,6 +47,11 @@ const fetchSinglePokemonError = (error) => {
     }
 }
 
+const changeType = type => ({
+    type: FILTER_TYPE,
+    category: type
+})
+
 export { 
   FETCH_POKEMONS_PENDING, 
   FETCH_POKEMONS_SUCCESS, 
@@ -59,4 +65,5 @@ export {
   fetchSinglePokemonError,
   fetchSinglePokemonPending,
   fetchSinglePokemonSuccess,
+  changeType
 }
