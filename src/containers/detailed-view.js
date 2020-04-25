@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { getPokemonsError, getPokemons, getPokemonPending } from '../reducers/pokemon-reducer'
 import fetchPokemonsActions from '../api/fetch-pokemons'
-
+import PropTypes from 'prop-types';
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   fetchPokemon: fetchPokemonsActions.fetchPokemon
@@ -19,26 +19,40 @@ const mapStatetoProps = state => ({
   }
 })
 
-
 const DetailedView = ({fetchPokemon, data}) => {
-  const {error, pending, pokemons} = data
-  console.log(pending, pokemons)
+  const {error,pending, pokemons = []} = data
+
   const {name} = useParams()
 
   useEffect(() => {
     fetchPokemon(name)
   }, [])
-
-  if(pending) return <div>loading</div>
   
-  return <Pokemon pokemon={pokemons[0]} />
-  // if(error) {
-  //   return <div>Error! {error}</div>
-  // }else if(pending){
-  //   return <div>Loading..</div>
-  // }else{
-  //   return <Pokemon pokemon={pokemons[0]} />
-  // }
+  if(error) return <div>Error: {error}</div>
+  if(pending) return <div>loading</div>
+  if(pokemons.length === 1){
+    return <Pokemon pokemon={pokemons[0]} />
+  }
+
+  return <div>Data still loading</div>
+  
+}
+
+DetailedView.defaultProps = {
+  data: {
+    error: null,
+    pending: true,
+    pokemons: []
+  }
+}
+
+DetailedView.propTypes = {
+  data: PropTypes.shape({
+    error: PropTypes.string,
+    pending: PropTypes.bool,
+    pokemons: PropTypes.arrayOf(PropTypes.object)
+  }),
+  fetchPokemon: PropTypes.func.isRequired
 }
 
 export default connect(mapStatetoProps, mapDispatchToProps)(DetailedView)

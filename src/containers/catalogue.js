@@ -6,6 +6,8 @@ import { getPokemonsError, getPokemons, getPokemonsPending } from '../reducers/p
 import { getPokemonType } from '../reducers/filter-reducer'
 import PokemonCompactView from '../components/item-compact-view'
 import CategoryFilter from '../components/category-filter'
+import PropTypes from 'prop-types';
+
 const mapDispatchToProps = dispatch => bindActionCreators({
   fetchPokemons: fetchPokemonsActions.fetchPokemons
 }, dispatch);
@@ -49,6 +51,10 @@ class Catalogue extends React.Component {
     if(pending) {
       return <div>loading..</div>
     }
+
+    if(pokemons.length < 2){
+      return <div>loading...</div>
+    }
     
     return(
       <div>
@@ -64,4 +70,22 @@ class Catalogue extends React.Component {
   }
 }
 
+Catalogue.defaultProps = {
+  data: {
+    pending: true,
+    error:null,
+    pokemons: []
+  },
+  filter: 'normal'
+}
+
+Catalogue.propTypes = {
+  data: PropTypes.shape({
+    pending: PropTypes.bool,
+    error: PropTypes.string,
+    pokemons: PropTypes.arrayOf(PropTypes.object)
+  }),
+  filter: PropTypes.string,
+  fetchPokemons: PropTypes.func.isRequired
+}
 export default connect(mapStateToProps, mapDispatchToProps)(Catalogue)
