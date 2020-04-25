@@ -1,4 +1,4 @@
-const FILTER_TYPE = 'FILTER_TYPE'
+const FILTER_TYPE = 'FILTER_TYPE';
 export const filterType = (state = 'normal', action) => {
   switch (action.type) {
     case FILTER_TYPE:

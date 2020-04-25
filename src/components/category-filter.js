@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 
 const CategoryFilter = props => {
   const pokemonCategories = [
-    'normal', 
-    'fighting', 
-    'flying', 
-    'poison', 
-    'ground', 
-    'rock', 
+    'normal',
+    'fighting',
+    'flying',
+    'poison',
+    'ground',
+    'rock',
     'bug',
     'ghost',
     'steel',
@@ -22,16 +22,16 @@ const CategoryFilter = props => {
     'dark',
     'fairy',
     'unknown',
-    'shadow'
+    'shadow',
   ];
   const { onClick } = props;
   return (
-    <div className="form-group mt-5">
-      <label htmlFor="category">
+    <div className="form-group d-flex justify-content-center">
+      <label htmlFor="category" className="category">
         Select Pokemon Category
 
-        <select name="category" className="select-field"  onChange={e => onClick(e)}>
-          <option key={1} value=''>Select category</option>
+        <select name="category" className="custom-select" onChange={e => onClick(e)}>
+          <option key={1} value="">Select category</option>
           {pokemonCategories.map(cat => (<option key={cat} value={cat}>{cat}</option>))}
         </select>
       </label>

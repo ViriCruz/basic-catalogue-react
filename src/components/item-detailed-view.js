@@ -1,55 +1,64 @@
-import React from 'react'
-import {useHistory} from 'react-router'
+import React from 'react';
+import { useHistory } from 'react-router';
 import PropTypes from 'prop-types';
 
-const Pokemon = ({pokemon}) => {
-  const history = useHistory()
+const Pokemon = ({ pokemon }) => {
+  const history = useHistory();
 
   const goBackHandle = () => {
-    history.goBack()
-  }
+    history.goBack();
+  };
 
-  return(
-    <div>
-      <div className="pokemon-container">
-        <img src={pokemon.sprites['front_default']} alt={pokemon.name} />
+  return (
+    <div className="container pokemon-detailed">
+      <div className="pokemon-container d-flex justify-content-center align-items-center">
+        <img src={pokemon.sprites.front_default} alt={pokemon.name} />
         <h1>{pokemon.name}</h1>
       </div>
-      
-      <div>
-        <h2>Abilities:</h2>
-        <ul className="stats">
-          {pokemon.abilities.map( ab => <li key={ab.ability.name}>{ab.ability.name}</li>)}
+
+      <div className="d-flex flex-column">
+        <h2 className="text-center">Abilities:</h2>
+        <ul className="d-flex justify-content-center">
+          {pokemon.abilities.map(ab => <li key={ab.ability.name} className="abilities">{ab.ability.name}</li>)}
         </ul>
       </div>
 
-      <div>
-        <h2>Stats</h2>
-        <ul>
-          {pokemon.stats.map( stats => <li key={stats.stat.name}><span>{stats.stat.name}:</span> {stats.base_stat}</li>)}
+      <div className="d-flex flex-column">
+        <h2 className="text-center">Stats</h2>
+        <ul className="d-flex justify-content-center">
+          {pokemon.stats.map(stats => (
+            <li key={stats.stat.name} className="stats mb-3">
+              <span>
+                {stats.stat.name}
+                :
+              </span>
+              {' '}
+              {stats.base_stat}
+            </li>
+          ))}
         </ul>
       </div>
-      <button onClick={goBackHandle}>Go back</button>
+      <button className="btn btn-secondary" onClick={goBackHandle}>Go back</button>
     </div>
-  )
-}
+  );
+};
 
 Pokemon.defaultProps = {
-  pokemon:{
+  pokemon: {
     name: 'pikachu',
     abilities: [],
     stats: [],
-    sprites: {}
-  }
-}
+    sprites: {},
+  },
+};
 
 Pokemon.propTypes = {
   pokemon: PropTypes.shape({
     name: PropTypes.string,
     abilities: PropTypes.arrayOf(PropTypes.object),
     stats: PropTypes.arrayOf(PropTypes.object),
-    sprites: PropTypes.objectOf(PropTypes.string)
-  })
-}
+    sprites: PropTypes.objectOf(PropTypes.string),
+  }),
+};
 
-export default Pokemon
+export default Pokemon;

@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux'
-import { applyMiddleware, createStore } from 'redux'
+import { Provider } from 'react-redux';
+import { applyMiddleware, createStore } from 'redux';
 import thunk from 'redux-thunk';
-import rootReducer from './reducers/root-reducer'
-import App from './components/app'
+import rootReducer from './reducers/root-reducer';
+import App from './components/app';
 import './styles/main.css';
 import './styles/reset.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -15,21 +15,20 @@ const initialState = {
   pending: true,
   pendingPokemon: true,
   pokemons: [],
-  error: null
-}
+  error: null,
+};
 
 const store = createStore(rootReducer, {
   data: initialState,
-  filter: 'normal'
-}, applyMiddleware(...middlewares))
+  filter: 'normal',
+}, applyMiddleware(...middlewares));
 
-console.log(store.getState())
+console.log(store.getState());
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App/>
+      <App />
     </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
-
