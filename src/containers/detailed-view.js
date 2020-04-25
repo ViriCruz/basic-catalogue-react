@@ -3,10 +3,10 @@ import { useParams } from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
+import Spinner from 'react-bootstrap/Spinner';
 import { getPokemonsError, getPokemons, getPokemonPending } from '../reducers/pokemon-reducer';
 import fetchPokemonsActions from '../api/fetch-pokemons';
 import Pokemon from '../components/item-detailed-view';
-import Spinner from 'react-bootstrap/Spinner'
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   fetchPokemon: fetchPokemonsActions.fetchPokemon,
@@ -42,7 +42,7 @@ const DetailedView = ({ fetchPokemon, data }) => {
       <div className="d-flex justify-content-center">
         <Spinner animation="grow" />
       </div>
-    )
+    );
   }
   if (pokemons.length === 1) {
     return <Pokemon pokemon={pokemons[0]} />;
@@ -52,7 +52,7 @@ const DetailedView = ({ fetchPokemon, data }) => {
     <div className="d-flex justify-content-center">
       <Spinner animation="grow" />
     </div>
-  )
+  );
 };
 
 DetailedView.defaultProps = {

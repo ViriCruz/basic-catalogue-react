@@ -34,6 +34,7 @@ const fetchPokemons = type => async dispatch => {
   } catch (e) {
     dispatch(fetchPokemonsError(e));
   }
+  return null;
 };
 
 const fetchPokemon = name => async dispatch => {
@@ -51,6 +52,7 @@ const fetchPokemon = name => async dispatch => {
   } catch (e) {
     dispatch(fetchSinglePokemonError(e));
   }
+  return null;
 };
 
 export default {

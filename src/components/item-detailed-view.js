@@ -39,7 +39,7 @@ const Pokemon = ({ pokemon }) => {
           ))}
         </ul>
       </div>
-      <button className="btn btn-secondary" onClick={goBackHandle}>Go back</button>
+      <button type="button" className="btn btn-secondary" onClick={goBackHandle}>Go back</button>
     </div>
   );
 };

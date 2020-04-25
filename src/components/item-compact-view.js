@@ -8,7 +8,7 @@ const pokemonItem = ({ pokemon }) => (
     className="pokemon col-4"
   >
     <Link to={`/pokemon/${pokemon.name}`}>
-      <img className="pokemon-pic" src={whoIs} />
+      <img className="pokemon-pic" src={whoIs} alt={pokemon.name} />
       {pokemon.name}
     </Link>
   </li>

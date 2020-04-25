@@ -39,8 +39,13 @@ const CategoryFilter = props => {
   );
 };
 
+CategoryFilter.defaultProps = {
+  category: 'normal',
+};
+
 CategoryFilter.propTypes = {
   onClick: PropTypes.func.isRequired,
+  category: PropTypes.string,
 };
 
 export default CategoryFilter;

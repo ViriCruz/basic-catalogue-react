@@ -2,12 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
+import Spinner from 'react-bootstrap/Spinner';
 import fetchPokemonsActions from '../api/fetch-pokemons';
 import { getPokemonsError, getPokemons, getPokemonsPending } from '../reducers/pokemon-reducer';
 import { getPokemonType } from '../reducers/filter-reducer';
 import PokemonCompactView from '../components/item-compact-view';
 import CategoryFilter from '../components/category-filter';
-import Spinner from 'react-bootstrap/Spinner'
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   fetchPokemons: fetchPokemonsActions.fetchPokemons,
@@ -43,8 +43,8 @@ class Catalogue extends React.Component {
 
 
   render() {
-    const { error, pending, pokemons } = this.props.data;
-    const {filter} = this.props
+    const { data, filter } = this.props;
+    const { error, pending, pokemons } = data;
     if (error) {
       return (
         <div>
@@ -59,7 +59,7 @@ class Catalogue extends React.Component {
         <div className="d-flex justify-content-center">
           <Spinner animation="grow" />
         </div>
-      )
+      );
     }
 
     if (pokemons.length < 2) {
@@ -67,7 +67,7 @@ class Catalogue extends React.Component {
         <div className="d-flex justify-content-center">
           <Spinner animation="grow" />
         </div>
-      )
+      );
     }
 
     return (
