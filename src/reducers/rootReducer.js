@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import { pokemonsReducer } from './pokemon-reducer';
-import { filterType } from './filter-reducer';
+import { pokemonsReducer } from './pokemonReducer';
+import { filterType } from './filterReducer';
 
 const rootReducer = combineReducers({
   data: pokemonsReducer,

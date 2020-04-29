@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Catalogue from '../containers/catalogue';
-import DetailedView from '../containers/detailed-view';
+import DetailedView from '../containers/detailedView';
 
 const app = () => (
   <Router>

@@ -33,7 +33,7 @@ const fetchPokemons = type => async dispatch => {
     return response.pokemon;
   } catch (e) {
     dispatch(fetchPokemonsError(e));
-    return e
+    return e;
   }
 };
 
@@ -51,7 +51,7 @@ const fetchPokemon = name => async dispatch => {
     return pokemon;
   } catch (e) {
     dispatch(fetchSinglePokemonError(e));
-    return e
+    return e;
   }
 };
 
