@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import Spinner from 'react-bootstrap/Spinner';
-import fetchPokemonsActions from '../api/fetch-pokemons';
-import { getPokemonsError, getPokemons, getPokemonsPending } from '../reducers/pokemon-reducer';
-import { getPokemonType } from '../reducers/filter-reducer';
-import PokemonCompactView from '../components/item-compact-view';
-import CategoryFilter from '../components/category-filter';
+import fetchPokemonsActions from '../api/fetchPokemons';
+import { getPokemonsError, getPokemons, getPokemonsPending } from '../reducers/pokemonReducer';
+import { getPokemonType } from '../reducers/filterReducer';
+import PokemonCompactView from '../components/itemCompactView';
+import CategoryFilter from '../components/categoryFilter';
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   fetchPokemons: fetchPokemonsActions.fetchPokemons,

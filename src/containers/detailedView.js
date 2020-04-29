@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import Spinner from 'react-bootstrap/Spinner';
-import { getPokemonsError, getPokemons, getPokemonPending } from '../reducers/pokemon-reducer';
-import fetchPokemonsActions from '../api/fetch-pokemons';
-import Pokemon from '../components/item-detailed-view';
+import { getPokemonsError, getPokemons, getPokemonPending } from '../reducers/pokemonReducer';
+import fetchPokemonsActions from '../api/fetchPokemons';
+import Pokemon from '../components/itemDetailedView';
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   fetchPokemon: fetchPokemonsActions.fetchPokemon,
