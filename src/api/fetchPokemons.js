@@ -24,18 +24,22 @@ const pokemonProps = async name => {
   throw new Error(response.status);
 };
 
-const fetchPokemons = type => async dispatch => {
-  dispatch(fetchPokemonsPending());
-  try {
-    const response = await pokemonsType(type);
-    dispatch(fetchPokemonsSuccess(response.pokemon));
-    dispatch(changeType(type));
-    return response.pokemon;
-  } catch (e) {
-    dispatch(fetchPokemonsError(e));
-    return e;
+const fetchPokemons = type => {
+  return async (dispatch) => {
+    dispatch(fetchPokemonsPending());
+    try {
+      const response =  await pokemonsType(type);
+    
+      dispatch(fetchPokemonsSuccess(response.pokemon));
+      dispatch(changeType(type));
+      return response;
+    } catch (e) {
+      dispatch(fetchPokemonsError(e));
+      return e;
+    }
   }
 };
+
 
 const fetchPokemon = name => async dispatch => {
   dispatch(fetchSinglePokemonPending());

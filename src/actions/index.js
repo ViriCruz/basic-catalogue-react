@@ -47,6 +47,7 @@ export {
   FETCH_SINGLE_POKEMON_ERROR,
   FETCH_SINGLE_POKEMON_PENDING,
   FETCH_SINGLE_POKEMON_SUCCESS,
+  FILTER_TYPE,
   fetchPokemonsPending,
   fetchPokemonsSuccess,
   fetchPokemonsError,
