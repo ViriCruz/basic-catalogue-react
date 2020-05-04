@@ -25,8 +25,8 @@ describe('async actions', () => {
             },
             "slot": 1
           }
-        ]
-      }, 
+        ],
+      },
       { delay: 1000, }
     );
      
