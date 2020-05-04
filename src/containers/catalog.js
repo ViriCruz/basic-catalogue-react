@@ -22,7 +22,7 @@ const mapStateToProps = state => ({
   filter: getPokemonType(state.filter),
 });
 
-class Catalogue extends React.Component {
+export class Catalog extends React.Component {
   constructor(props) {
     super(props);
     this.handleFilterChange = this.handleFilterChange.bind(this);
@@ -86,7 +86,7 @@ class Catalogue extends React.Component {
   }
 }
 
-Catalogue.defaultProps = {
+Catalog.defaultProps = {
   data: {
     pending: true,
     error: null,
@@ -95,7 +95,7 @@ Catalogue.defaultProps = {
   filter: 'normal',
 };
 
-Catalogue.propTypes = {
+Catalog.propTypes = {
   data: PropTypes.shape({
     pending: PropTypes.bool,
     error: PropTypes.string,
@@ -104,4 +104,4 @@ Catalogue.propTypes = {
   filter: PropTypes.string,
   fetchPokemons: PropTypes.func.isRequired,
 };
-export default connect(mapStateToProps, mapDispatchToProps)(Catalogue);
+export default connect(mapStateToProps, mapDispatchToProps)(Catalog);
