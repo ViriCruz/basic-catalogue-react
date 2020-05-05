@@ -34,7 +34,7 @@ describe('Catalog testing', () => {
         <Catalog data={data} filter='normal' fetchPokemons={mockFetchPokemonsFn}/>
       </Router>
     )
-    expect(wrapper.find('#error').text()).toBe('Not Found')
+    expect(wrapper.find('.error').text()).toBe('Not Found')
   });
 
   it('renders spinner while waiting for data', () => {
