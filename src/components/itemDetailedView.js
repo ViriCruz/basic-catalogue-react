@@ -49,7 +49,7 @@ Pokemon.defaultProps = {
     name: 'pikachu',
     abilities: [],
     stats: [],
-    sprites: { front_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"},
+    sprites: { front_default: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png' },
   },
 };
 

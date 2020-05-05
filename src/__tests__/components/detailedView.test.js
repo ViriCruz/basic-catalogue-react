@@ -1,8 +1,7 @@
 import { mount } from 'enzyme';
-import { DetailedView } from '../../containers/detailedView'
-import React from 'react'
+import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-
+import { DetailedView } from '../../containers/detailedView';
 
 
 describe('Detailed View testing', () => {
@@ -11,42 +10,42 @@ describe('Detailed View testing', () => {
   let data = {
     error: null,
     pending: true,
-    pokemons: []
-  }
+    pokemons: [],
+  };
   beforeEach(() => {
     wrapper = mount(
       <Router>
-        <DetailedView data={data} fetchPokemon={mockFetchPokemonFn}/>
-      </Router>
-    )
-  })
-  
+        <DetailedView data={data} fetchPokemon={mockFetchPokemonFn} />
+      </Router>,
+    );
+  });
+
   it('should call the mock fetch pokemon function to populate data', () => {
-    expect(mockFetchPokemonFn.mock.calls.length).toBe(1)
-  })
+    expect(mockFetchPokemonFn.mock.calls.length).toBe(1);
+  });
 
   it('renders error when fetching fails', () => {
     data = {
-      error: 'Not Found'
-    }
+      error: 'Not Found',
+    };
     const wrapper = mount(
       <Router>
-        <DetailedView data={data} fetchPokemon={mockFetchPokemonFn}/>
-      </Router>
-    )
-    expect(wrapper.find('.error').text()).toBe('Not Found')
+        <DetailedView data={data} fetchPokemon={mockFetchPokemonFn} />
+      </Router>,
+    );
+    expect(wrapper.find('.error').text()).toBe('Not Found');
   });
 
   it('renders spinner while waiting for data', () => {
     data = {
-      pending: true
-    }
+      pending: true,
+    };
     const wrapper = mount(
       <Router>
-        <DetailedView data={data} fetchPokemon={mockFetchPokemonFn}/>
-      </Router>
-    )
-    expect(wrapper.find('.spinner-grow')).toHaveLength(1)
+        <DetailedView data={data} fetchPokemon={mockFetchPokemonFn} />
+      </Router>,
+    );
+    expect(wrapper.find('.spinner-grow')).toHaveLength(1);
   });
 
   it('renders single pokemon data', () => {
@@ -55,18 +54,18 @@ describe('Detailed View testing', () => {
       pending: false,
       pokemons: [{
         name: 'charizard',
-        sprites: { front_default :''},
+        sprites: { front_default: '' },
         abilities: [],
-        stats: []
-      }]
-    }
+        stats: [],
+      }],
+    };
 
     wrapper = mount(
       <Router>
-        <DetailedView data={data} fetchPokemon={mockFetchPokemonFn}/>
-      </Router>
-    )
+        <DetailedView data={data} fetchPokemon={mockFetchPokemonFn} />
+      </Router>,
+    );
 
-    expect(wrapper.find('h1').text()).toBe('charizard')
-  })
-})
+    expect(wrapper.find('h1').text()).toBe('charizard');
+  });
+});
