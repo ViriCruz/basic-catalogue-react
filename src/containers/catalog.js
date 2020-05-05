@@ -47,8 +47,7 @@ export class Catalog extends React.Component {
     const { error, pending, pokemons } = data;
     if (error) {
       return (
-        <div>
-          Error!
+        <div id="error">
           {error}
         </div>
       );
