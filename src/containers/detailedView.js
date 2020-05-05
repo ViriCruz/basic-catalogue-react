@@ -20,7 +20,7 @@ const mapStatetoProps = state => ({
   },
 });
 
-const DetailedView = ({ fetchPokemon, data }) => {
+export const DetailedView = ({ fetchPokemon, data }) => {
   const { error, pending, pokemons = [] } = data;
 
   const { name } = useParams();
@@ -31,8 +31,7 @@ const DetailedView = ({ fetchPokemon, data }) => {
 
   if (error) {
     return (
-      <div>
-        Error:
+      <div className="error">
         {error}
       </div>
     );
