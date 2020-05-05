@@ -1,6 +1,6 @@
-import api from '../api/fetchPokemons';
+import api from '../../api/fetchPokemons';
 
-jest.mock('../api/fetchPokemons');
+jest.mock('../../api/fetchPokemons');
 
 describe('Testing pokeApi responses', () => {
   it('happy path -> returns a list of pokemon', async () => {
