@@ -1,4 +1,4 @@
-import { mount} from 'enzyme';
+import { mount } from 'enzyme';
 import { Catalog } from '../../containers/catalog'
 import React from 'react'
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -7,7 +7,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 describe('Catalog testing', () => {
   let wrapper;
-  const mockFetchPokemonsfn = jest.fn();
+  const mockFetchPokemonsFn = jest.fn();
   let data = {
     error: null,
     pending: true,
@@ -16,13 +16,13 @@ describe('Catalog testing', () => {
   beforeEach(() => {
     wrapper = mount(
       <Router>
-        <Catalog data={data} filter='normal' fetchPokemons={mockFetchPokemonsfn}/>
+        <Catalog data={data} filter='normal' fetchPokemons={mockFetchPokemonsFn}/>
       </Router>
     )
   })
   
   it('should call the mock fetch pokemons function to populate data', () => {
-    expect(mockFetchPokemonsfn.mock.calls.length).toBe(1)
+    expect(mockFetchPokemonsFn.mock.calls.length).toBe(1)
   })
 
   it('renders error when fetching fails', () => {
@@ -31,7 +31,7 @@ describe('Catalog testing', () => {
     }
     const wrapper = mount(
       <Router>
-        <Catalog data={data} filter='normal' fetchPokemons={mockFetchPokemonsfn}/>
+        <Catalog data={data} filter='normal' fetchPokemons={mockFetchPokemonsFn}/>
       </Router>
     )
     expect(wrapper.find('#error').text()).toBe('Not Found')
@@ -43,7 +43,7 @@ describe('Catalog testing', () => {
     }
     const wrapper = mount(
       <Router>
-        <Catalog data={data} filter='normal' fetchPokemons={mockFetchPokemonsfn}/>
+        <Catalog data={data} filter='normal' fetchPokemons={mockFetchPokemonsFn}/>
       </Router>
     )
     expect(wrapper.find('.spinner-grow')).toHaveLength(1)
@@ -73,7 +73,7 @@ describe('Catalog testing', () => {
     }
     const wrapper = mount(
       <Router>
-        <Catalog data={data} filter='normal' fetchPokemons={mockFetchPokemonsfn}/>
+        <Catalog data={data} filter='normal' fetchPokemons={mockFetchPokemonsFn}/>
       </Router>
     )
     expect(wrapper.find('.custom-select')).toHaveLength(1)
