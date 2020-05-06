@@ -52,3 +52,17 @@ Fork this repo and submit a PR for review and potential merge to main branch. Fe
 ## License
 
 This project is [MIT](LICENSE) licensed.
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
+[contributors-shield]: https://img.shields.io/github/contributors/viricruz/basic-catalogue-react.svg?style=flat-square
+[contributors-url]: https://github.com/viricruz/basic-catalogue-react/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/viricruz/basic-catalogue-react
+[forks-url]: https://github.com/viricruz/basic-catalogue-react/network/members
+[stars-shield]: https://img.shields.io/github/stars/viricruz/basic-catalogue-react
+[stars-url]: https://github.com/viricruz/basic-catalogue-react/stargazers
+[issues-shield]: https://img.shields.io/github/issues/viricruz/basic-catalogue-react
+[issues-url]: https://github.com/viricruz/basic-catalogue-react/issues
+[license-shield]: https://img.shields.io/github/license/viricruz/basic-catalogue-react
+[license-url]: https://github.com/viricruz/basic-catalogue-react/blob/master/LICENSE.txt
