@@ -21,7 +21,7 @@ Visit [Pokemon Catalog](https://pokemon-catalogue.herokuapp.com/) to try the liv
 - JavaScript ES6
 
 
-### Prerequisites
+## Prerequisites
 * Node.js installed
 You will need Node.js up to v8
 
@@ -29,16 +29,28 @@ You will need Node.js up to v8
 Windows/ Mac
 
 
-### Install
+## Install
 Clone project and run
 `npm install`
+`npm start`
+
+This will launch project on **localhost:3000**
+
 
 ### How to use
 Browse the list of pokemon, everytime you want to see more details of pokemon in specific, just click on the pokemon. To filter pokemons by type, just select a category from the select dropdown above the pokemon's list.
 
+
+
 ## How to contribute and partipate
 Fork this repo and submit a PR for review and potential merge to main branch. Feel free to leave feedback :smile:
 
+## How to run tests
+If you want to use npm, run:
+`npm test`
+
+If you want yo use yarn, run:
+`yarn test`
 
 ## Authors
 
