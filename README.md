@@ -5,9 +5,10 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 
-# Basic catalogue with react
-This project is a basic pokemon catalogue that has a browsable list of pokemons
-depending on the pokemon type that you select. Also you can check in more detail if you click on a pokemon.
+# Basic catalog with React
+This project is a basic pokemon catalog that has a browsable list of pokemon, depending on the pokemon type that you select. Also, you can check in more detail if you click on a pokemon.
+
+[![](https://i.imgur.com/W4p5uMu.png)](https://drive.google.com/file/d/1_VbEV0ZjVnuLhfl1C8AjJhTsD8z6yyI-/view?usp=sharing)
 
 
 ## Demo down below
@@ -30,20 +31,20 @@ Windows/ Mac
 
 
 ## Install
-Clone project and run
+Clone project and run:
 `npm install`
 `npm start`
 
-This will launch project on **localhost:3000**
+This will launch the project on **localhost:3000**
 
 
 ### How to use
-Browse the list of pokemon, everytime you want to see more details of pokemon in specific, just click on the pokemon. To filter pokemons by type, just select a category from the select dropdown above the pokemon's list.
+Browse the list of pokemon, every time you want to see more details of pokemon in specific, just click on the pokemon. To filter pokemon by type, just select a category from the select dropdown above the pokemon's list.
 
 
 
-## How to contribute and partipate
-Fork this repo and submit a PR for review and potential merge to main branch. Feel free to leave feedback :smile:
+## How to contribute and participate
+Fork this repo and submit a PR for review and potential merge to the main branch. Feel free to leave feedback. :smile:
 
 ## How to run tests
 If you want to use npm, run:
@@ -60,7 +61,7 @@ If you want yo use yarn, run:
 
 - email me at viridiana.cruz.olivera@gmail.com
 
-- Linkedin [@viricruz](https://www.linkedin.com/in/viricruz/)
+- LinkedIn [@viricruz](https://www.linkedin.com/in/viricruz/)
 
 ## License
 
