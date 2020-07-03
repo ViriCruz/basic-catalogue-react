@@ -8,8 +8,13 @@ const pokemonItem = ({ pokemon }) => (
     className="pokemon col-4"
   >
     <Link to={`/pokemon/${pokemon.name}`}>
-      <img className="pokemon-pic" src={whoIs} alt={pokemon.name} />
-      {pokemon.name}
+      <div>
+        <div>
+          <img className="pokemon-pic" src={pokemon.image ? pokemon.image : whoIs} alt={pokemon.name} />
+          <p>{pokemon.name}</p>
+        </div>
+      </div>
+      
     </Link>
   </li>
 );

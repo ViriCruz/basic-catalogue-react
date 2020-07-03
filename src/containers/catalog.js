@@ -45,6 +45,7 @@ export class Catalog extends React.Component {
   render() {
     const { data, filter } = this.props;
     const { error, pending, pokemons } = data;
+    console.log(pokemons)
     if (error) {
       return (
         <div className="error">
@@ -75,8 +76,8 @@ export class Catalog extends React.Component {
         <ul className="pokelist container row mx-auto">
           {pokemons.map(pokemon => (
             <PokemonCompactView
-              key={pokemon.pokemon.name}
-              pokemon={pokemon.pokemon}
+              key={pokemon.name}
+              pokemon={pokemon}
             />
           ))}
         </ul>

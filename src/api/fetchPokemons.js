@@ -28,8 +28,17 @@ const fetchPokemons = type => async dispatch => {
   dispatch(fetchPokemonsPending());
   try {
     const response = await pokemonsType(type);
-
-    dispatch(fetchPokemonsSuccess(response.pokemon));
+    const pokemons = response.pokemon.map(async pok => {
+      const res = await fetch(pok.pokemon.url)
+      return res.json()
+    })
+    const pokemonsData = await Promise.all(pokemons)
+    const payload = pokemonsData.map( data => ({
+      name: data.name,
+      image: data.sprites['front_default'] 
+    }))
+    console.log(pokemonsData)
+    dispatch(fetchPokemonsSuccess(payload));
     dispatch(changeType(type));
     return response;
   } catch (e) {

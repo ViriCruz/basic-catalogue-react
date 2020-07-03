@@ -11,9 +11,9 @@ const fetchPokemonsPending = () => ({
   type: FETCH_POKEMONS_PENDING,
 });
 
-const fetchPokemonsSuccess = pokemons => ({
+const fetchPokemonsSuccess = data => ({
   type: FETCH_POKEMONS_SUCCESS,
-  pokemons,
+  pokemons: data,
 });
 
 const fetchPokemonsError = error => ({
