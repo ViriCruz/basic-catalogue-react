@@ -1,0 +1,82 @@
+* {
+  box-sizing: border-box;
+}
+
+body, html, .switch{
+  background-color: #38599c; 
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pokemon {
+  padding: 20px;
+  color: #fff;
+  font-size: 24px;
+  flex: 1 1 300px;
+}
+
+.pokemon-detailed {
+  background-color: #fff;
+  border-radius: 3px;
+  padding: 10px 0;
+}
+
+.pokemon-container {
+  width: 50%;
+  margin: auto
+}
+.pokemon img {
+  height:100px;
+  margin-right: 15px; 
+}
+.title, .catalogue {
+  background-color: #38599c;
+}
+
+.catalogue .pokelist li a{
+  color: #fff;
+  text-decoration: none;
+}
+.title {
+  padding: 30px 0;
+}
+
+.title h1{
+  color: #ffcc03;
+  font-size: 45px;
+  text-align: center;
+}
+
+.category {
+  text-align: center;
+  color: #fff;
+  font-size: 24px;
+}
+
+
+
+.abilities, .stats {
+  background-color: orange;
+  width: 25%;
+  margin: 0 1%;
+  padding: 10px;
+  border-radius: 3px;
+  color: #000;
+  font-weight: 600;
+  text-align: center;
+}
+
+.stats {
+  background-color:#ad21a8;
+  color: #fff
+}
+
+/* spinner */
+.spinner-grow {
+  width: 9rem!important;
+  height: 9rem!important;
+}
