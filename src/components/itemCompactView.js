@@ -8,11 +8,13 @@ const pokemonItem = ({ pokemon }) => (
     className="pokemon col-4"
   >
     <Link to={`/pokemon/${pokemon.name}`}>
-      <div>
+      
+      <div className="d-flex flex-column align-items-center">
         <div>
           <img className="pokemon-pic" src={pokemon.image ? pokemon.image : whoIs} alt={pokemon.name} />
-          <p>{pokemon.name}</p>
         </div>
+        
+        <p>{pokemon.name}</p>
       </div>
       
     </Link>
